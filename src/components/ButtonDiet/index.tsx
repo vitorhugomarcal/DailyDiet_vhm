@@ -4,12 +4,13 @@ import { ButtonTypeStyleProps, Container, Icon, Title } from "./styles";
 interface Props extends TouchableOpacityProps {
   title: string;
   type?: ButtonTypeStyleProps
+  isActive?: boolean;
 }
 
-export function Button({ title, type = 'PRIMARY', ...rest }:Props) {
+export function ButtonDiet({ title, type = 'PRIMARY', isActive = false, ...rest }:Props) {
   return (
-    <Container type={type} {...rest}>
-      <Icon type={type} color={type}/>
+    <Container type={type} isActive={isActive}  {...rest}>
+      <Icon type={type}/>
       <Title type={type}>{title}</Title>
     </Container>
   )

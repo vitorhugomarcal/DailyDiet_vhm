@@ -7,6 +7,7 @@ import { Header } from "@components/Header";
 import { PercentageCard } from "@components/PercentCard";
 import { Meal } from "@components/Meal";
 import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 interface MealsProps {
   title: string;
@@ -28,18 +29,29 @@ const MealsAdd: MealsProps[] = [
 
 export function Home() {
   const { COLORS, FONT_FAMILY } = useTheme()
+  const navigation = useNavigation()
   const [meals, setMeals] = useState<MealsProps[]>(MealsAdd)
+
+  const today = new Date(Date.now());
+  const formattedDate = today.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: '2-digit' }).replace(/\//g, '.');
+
+  function handleDietInfo() {
+    navigation.navigate('diet')
+  }
+  function handleNew() {
+    navigation.navigate('new')
+  }
 
   return (
     <Container>
       <Header />
-      <PercentageCard title="90,21%" subtitle="das refeições dentro da dieta"/>
+      <PercentageCard title="90,21%" subtitle="das refeições dentro da dieta" onPress={handleDietInfo}/>
       <Text style={{ marginBottom: 8, fontFamily: FONT_FAMILY.REGULAR, color: COLORS.GRAY_700, fontSize: 16 }}>
         Refeições
       </Text>
-      <Button />
+      <Button title="Nova refeição" onPress={handleNew} />
       <Text style={{ marginTop: 32, marginBottom: 8, fontFamily: FONT_FAMILY.BOLD, color: COLORS.GRAY_700, fontSize: 18 }}>
-        24.02.23
+        {formattedDate}
       </Text>
       <FlatList
         data={meals}
