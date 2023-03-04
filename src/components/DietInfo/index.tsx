@@ -3,18 +3,25 @@ import { InfoCard } from "@components/InfoCard";
 import { InfoMiniCard } from "@components/InfoMiniCard";
 import { Container } from "./styles";
 
-export function DietInfo() {
+interface DietInfoProps {
+  totalMeals: string;
+  totalDietMeals: string;
+  totalNotDietMeals: string;
+}
+
+export function DietInfo({totalMeals, totalDietMeals, totalNotDietMeals}: DietInfoProps) {
+
   return (
     <Container>
       <Highlight title="Estatísticas gerais" />
 
       <InfoCard title="22" subtitle="melhor sequência de pratos dentro da dieta"/>
-      <InfoCard title="109" subtitle="refeições registradas"/>
+      <InfoCard title={totalMeals} subtitle="refeições registradas"/>
 
       <InfoMiniCard
-        titleP="99"
+        titleP={totalDietMeals}
         subtitleP="refeições dentro da dieta"
-        titleS="10"
+        titleS={totalNotDietMeals}
         subtitleS="refeições fora da dieta"
       />
     </Container>

@@ -1,18 +1,19 @@
+import { HeaderInfoProps } from "@components/HeaderInfo";
 import { TouchableOpacityProps } from "react-native";
 import { Container, Icon, Percentage, PercentCardStyleProps, Subtitle } from "./styles";
 
-interface Props extends TouchableOpacityProps {
+type Props = TouchableOpacityProps & HeaderInfoProps & {
   title: string;
   subtitle: string;
   type?: PercentCardStyleProps;
 }
 
-export function PercentageCard({ title, subtitle, type = 'PRIMARY', ...rest}: Props) {
+export function PercentageCard({percentage, title, subtitle, type = 'PRIMARY', ...rest}: Props) {
   return (
     <Container type={type} {...rest}>
       <Icon color={type}/>
       <Percentage>
-        {title}
+        {percentage}
       </Percentage>
       <Subtitle>
         {subtitle}

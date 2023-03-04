@@ -15,6 +15,8 @@ export const Container = styled.View`
 `
 export const Content = styled.View<Props>`
   flex: 1;
+  height: 100%;
+  align-self: center;
   background-color: ${({ theme, type }) => type === 'PRIMARY' ? theme.COLORS.GREEN_300 : theme.COLORS.RED_LIGHT };
   border-radius: 8px;
   padding: 16px;

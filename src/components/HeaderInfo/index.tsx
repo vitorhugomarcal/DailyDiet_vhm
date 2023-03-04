@@ -1,7 +1,11 @@
 import { useNavigation } from '@react-navigation/native'
 import { BackButton, BackIcon, Container, Subtitle, Title } from './styles'
 
-export function HeaderInfo() {
+export interface HeaderInfoProps {
+  percentage: string;
+}
+
+export function HeaderInfo({percentage}: HeaderInfoProps) {
   const navigation = useNavigation()
 
   function handleGoBack() {
@@ -14,7 +18,7 @@ export function HeaderInfo() {
         <BackIcon />
       </BackButton>
       <Title>
-        90,86%
+        {percentage}%
       </Title>
       <Subtitle>
         das refeições dentro da dieta

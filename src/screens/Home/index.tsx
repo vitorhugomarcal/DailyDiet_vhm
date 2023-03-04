@@ -51,7 +51,7 @@ export function Home() {
   return (
     <Container>
       <Header />
-      <PercentageCard title="90,21%" subtitle="das refeições dentro da dieta" onPress={handleDietInfo}/>
+      <PercentageCard title="75%" percentage="75%" subtitle="das refeições dentro da dieta" onPress={handleDietInfo}/>
       <Text style={{ marginBottom: 8, fontFamily: FONT_FAMILY.REGULAR, color: COLORS.GRAY_700, fontSize: 16 }}>
         Refeições
       </Text>
